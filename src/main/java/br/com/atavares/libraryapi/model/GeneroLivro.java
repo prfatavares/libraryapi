@@ -1,6 +1,6 @@
-package br.com.atavares.libraryapi;
+package br.com.atavares.libraryapi.model;
 
-public enum Genero {
+public enum GeneroLivro {
     FICCAO,
     FANTASIA,
     MISTERIO,

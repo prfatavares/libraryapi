@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
-@Table(name = "tb_autor")
+@Table(name = "tb_autor", schema = "public")
 @Data
 public class Autor {
 
@@ -26,7 +26,7 @@ public class Autor {
     private String nacionalidade;
 
     public Autor() {
-        
+
     }
 
     public Autor(UUID id, String nome, LocalDate dataNascimento, String nacionalidade) {
