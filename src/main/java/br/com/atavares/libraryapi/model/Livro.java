@@ -29,6 +29,7 @@ public class Livro {
     @Column(name = "genero", nullable = false, length = 30)
     private GeneroLivro genero;
 
+    //ManyToOne(cascade = CascadeType.ALL)
     @ManyToOne
     @JoinColumn(name = "id_autor", nullable = false)
     private Autor autor;
