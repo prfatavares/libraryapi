@@ -9,6 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @SpringBootTest
@@ -19,6 +21,8 @@ class LivroRepositoryTest {
 
     @Autowired
     private AutorRepository autorRepository;
+
+    List<Livro> livros = new ArrayList<>();
 
     @Test
     public void salvarTest(){
@@ -53,6 +57,15 @@ class LivroRepositoryTest {
 
         livro.setAutor(autor);
         livroRepository.save(livro);
+    }
+
+    @Test
+    public void listar(){
+        System.out.println("\nLivro por título:\n" + livroRepository.findByTitulo("Poesias"));
+        System.out.println("\nLivro por ISBN e ID:\n" + livroRepository.findByIsbnAndId("987654321", UUID.fromString("a9eb697b-a21e-4d63-9fe3-d331dfba2081")));
+        livros = livroRepository.findByPrecoOrGenero(BigDecimal.valueOf(89.90), GeneroLivro.FICCAO);
+        System.out.println("\nLivros por preço ou Genero:");
+        livros.forEach(System.out::println);
     }
 
 }
