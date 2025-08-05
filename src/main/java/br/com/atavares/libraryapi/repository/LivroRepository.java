@@ -10,6 +10,7 @@ import java.util.UUID;
 
 public interface LivroRepository extends JpaRepository<Livro, UUID> {
 
+    //JPA Query Methods
     Livro findByTitulo(String titulo);
     Livro findByIsbnAndId(String isbn, UUID id);
     List<Livro> findByPrecoOrGenero(BigDecimal preco, GeneroLivro genero);
